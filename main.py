@@ -17,7 +17,7 @@ def main(args):
         X_train, X_test, y_train, y_test = load_full_dataset()
     elif args.dataset == "motorway":
         X_train, X_test, y_train, y_test = load_motorway_dataset()
-    elsif args.dataset == "secondary":
+    elif args.dataset == "secondary":
         X_train, X_test, y_train, y_test = load_secondary_dataset()
     else:
         print("No valid dataset argument was set, will use the full dataset!")
