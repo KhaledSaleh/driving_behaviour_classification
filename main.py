@@ -13,8 +13,16 @@ from model import LSTM_Network
 
 
 def main(args):
-    
-    X_train, X_test, y_train, y_test = load_full_dataset()
+    if args.dataset == "full":
+        X_train, X_test, y_train, y_test = load_full_dataset()
+    elif args.dataset == "motorway":
+        X_train, X_test, y_train, y_test = load_motorway_dataset()
+    elsif args.dataset == "secondary":
+        X_train, X_test, y_train, y_test = load_secondary_dataset()
+    else:
+        print("No valid dataset argument was set, will use the full dataset!")
+        X_train, X_test, y_train, y_test = load_full_dataset()
+        
     print('Training dataset shape: ', X_train.shape, y_train.shape)
     graph=tf.Graph()
     with graph.as_default():
@@ -81,6 +89,10 @@ if __name__ == '__main__':
     parser.add_argument('--save_dir', '-s',
                         help='Directory of (to be)-saved model',
                         default= 'saves')
+    parser.add_argument('--dataset', '-d',
+                        help='Which split of the dataset to train/test the model on?'\
+                        '(i.e. full, motorway or secondary)',
+                        default= 'full')
     parser.add_argument('--test', action='store_true',
                         help='Start testing the saved model in $save_dir$ '\
                         'othewrwise, it will start the training')
