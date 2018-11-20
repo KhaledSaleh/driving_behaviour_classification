@@ -20,6 +20,6 @@ If you find this work useful in your research, please consider citing:
       organization={IEEE}
     }
 ## Usage 
-1. Clone repo via `git clone https://github.com/KhaledSaleh/driving_behaviour_classification.git && cd driving_behaviour_classification.git`.
+1. Clone repo via `git clone https://github.com/KhaledSaleh/driving_behaviour_classification.git && cd driving_behaviour_classification`.
 2. Run `python main.py --help` to check the available command line args.
 3. Run `python main.py` to train the model on the full dataset.
